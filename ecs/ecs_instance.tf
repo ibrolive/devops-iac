@@ -23,7 +23,7 @@ resource "aws_autoscaling_group" "asg" {
   desired_capacity     = "${var.desired_capacity}"
   force_delete         = true
   launch_configuration = "${aws_launch_configuration.launch-cfg.id}"
-  vpc_zone_identifier  = ["${var.ecs_subnet_ids}"]
+  vpc_zone_identifier  = "${var.ecs_subnet_ids}"
 
   tags = [
     {
@@ -62,7 +62,7 @@ resource "aws_autoscaling_group" "asg" {
 data "template_file" "user_data" {
   template = "${file("${path.module}/templates/user_data.sh")}"
 
-  vars {
+  vars = {
    cluster_name      = "${var.project_name}-${var.env}-${var.component}-ecscluster"
   }
 }

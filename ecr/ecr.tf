@@ -7,7 +7,7 @@ resource "aws_ecr_repository" "ecr" {
 data "template_file" "build_docker_img" {
   template = "${file("${path.module}/build_docker_img.sh")}"
 
-  vars {
+  vars = {
    ecr_name    = "${aws_ecr_repository.ecr.name}"
    aws_account_number = "${var.aws_account_number}"
   }

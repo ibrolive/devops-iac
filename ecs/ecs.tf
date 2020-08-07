@@ -2,7 +2,7 @@
 resource "aws_cloudwatch_log_group" "loggroup" {
   name = "${var.project_name}-${var.env}-${var.component}-loggroup"
 
-  tags {
+  tags = {
     Env         = "${var.env}"
     Project     = "${var.project_name}"
     Name        = "${var.project_name}-${var.env}-${var.component}-loggroup"

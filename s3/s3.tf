@@ -6,7 +6,7 @@ resource "aws_s3_bucket" "ui" {
     index_document  = "index.html"
     error_document =  "index.html"
   }  
-  tags {
+  tags = {
     Env         = "${var.env}"
     Project     = "${var.project_name}"
     Name        = "${var.project_name}-${var.env}-ui-bucket"
@@ -27,7 +27,7 @@ resource "aws_s3_bucket" "sub_upload" {
     expose_headers  = ["Access-Control-Allow-Origin"]
     max_age_seconds = 3000
   }
-  tags {
+  tags = {
     Env         = "${var.env}"
     Project     = "${var.project_name}"
     Name        = "${var.project_name}-${var.env}-ui-bucket"
@@ -50,7 +50,7 @@ resource "aws_s3_bucket" "submissions" {
     max_age_seconds = 3000
   }
 
-  tags {
+  tags = {
     Env         = "${var.env}"
     Project     = "${var.project_name}"
     Name        = "${var.project_name}-${var.env}-scan-bucket"
@@ -73,7 +73,7 @@ resource "aws_s3_bucket_notification" "bucket_notification" {
 resource "aws_s3_bucket" "sub_quarantine" {
   bucket          = "${var.project_name}-${var.env}-sub_quarantine-bucket"
   acl             = "private"
-  tags {
+  tags = {
     Env         = "${var.env}"
     Project     = "${var.project_name}"
     Name        = "${var.project_name}-${var.env}-scan-bucket"

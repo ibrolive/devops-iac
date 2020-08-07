@@ -13,7 +13,7 @@ resource "aws_db_instance" "rds" {
   identifier           = "${var.project_name}-${var.env}-data-rds${var.rds_engine}"
   vpc_security_group_ids = "${var.rds_vpc_security_group_ids}"
 
-  tags {
+  tags = {
     Project = "${var.project_name}"
     Env = "${var.env}"
     Type = "rds${var.rds_engine}"

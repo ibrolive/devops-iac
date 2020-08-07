@@ -21,7 +21,7 @@ variable "receive_wait_time_seconds" {
     description = "The maximum amount of time that a long polling receive call will wait for a message to become available before returning an empty response. Value must be between 0 and 20 seconds."
 }
 variable "queue_policy_actions" {
-    type = "list"
+    type = list(string)
     description = "The SQS queue policy actions"
 }
 variable "component" {

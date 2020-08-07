@@ -24,12 +24,12 @@ variable "rds_db_password" {
 }
 
 variable "rds_subnet_ids" {
-  type = "list"
+  type = list(string)
   description = "RDS Subnet IDs"
 }
 
 variable "rds_vpc_security_group_ids" {
-  type = "list"
+  type = list(string)
   description = "RDS List of VPC security groups to associate"
 }
 

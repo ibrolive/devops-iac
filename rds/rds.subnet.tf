@@ -2,7 +2,7 @@ resource "aws_db_subnet_group" "rds_subnet" {
   subnet_ids          = "${var.rds_subnet_ids}"
   name                = "${var.project_name}-${var.env}-data-rdssg"
 
-  tags {
+  tags = {
     Project = "${var.project_name}"
     Env = "${var.env}"
     Type = "rdssg"

@@ -7,7 +7,7 @@ resource "aws_sqs_queue" "queue" {
   delay_seconds              = "${var.delay_seconds}"
   receive_wait_time_seconds  = "${var.receive_wait_time_seconds}"
 
-  tags {
+  tags = {
     Project = "${var.project_name}"
     Env = "${var.env}"
     Type = "${var.resourcetype}"

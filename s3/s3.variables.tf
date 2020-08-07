@@ -11,7 +11,7 @@ variable "queue_arn" {
   description = "The SQS queue arn"
 }
 variable "allowed_origins" {
-  type = "list"
+  type = list(string)
   description = "Specifies which origins are allowed"
 }
 output "submissions_bucket" {

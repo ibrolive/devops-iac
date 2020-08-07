@@ -11,12 +11,12 @@ resource "aws_alb_target_group" "target_group" {
     protocol = "${var.nlb_health_check_protocol}"
   }
   
-  tags {
-    Env         = "${var.env}"
-    Project     = "${var.project_name}"
+  tags = {
+    Env         = var.env
+    Project     = var.project_name
     Name        = "${var.project_name}-${var.env}-${var.component}-tg"
     Type        = "targetgroup"
-    Component   = "${var.component}"
+    Component   = var.component
   }
 }
 
@@ -25,14 +25,14 @@ resource "aws_alb" "nlb" {
   name            = "${var.project_name}-${var.env}-${var.component}-nlb"
   internal        = true
   load_balancer_type = "network"
-  subnets         = ["${var.ecs_subnet_ids}"]
+  subnets         = "${var.ecs_subnet_ids}"
 
-  tags {
-    Env         = "${var.env}"
-    Project     = "${var.project_name}"
+  tags = {
+    Env         = var.env
+    Project     = var.project_name
     Name        = "${var.project_name}-${var.env}-${var.component}-nlb"
     Type        = "nlb"
-    Component   = "${var.component}"
+    Component   = var.component
   }
 }
 

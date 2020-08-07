@@ -9,7 +9,7 @@ variable "vpc_id" {
   description = "The VPC id"
 }
 variable "ecs_subnet_ids" {
-  type        = "list"
+  type        = list(string)
   description = "The list of private subnets to place the instances in"
 }
 variable "gold_ami" {
